@@ -24,6 +24,7 @@
 	$min = $parsed_json4->{'trip'}->{'temp_high'}->{'min'}->{'C'};
 	$max = $parsed_json4->{'trip'}->{'temp_high'}->{'max'}->{'C'};
 	$avg = $parsed_json4->{'trip'}->{'temp_high'}->{'avg'}->{'C'};
+	$cuaca = $parsed_json4->trip->cloud_cover->cond;
 	$kemarin = $parsed_json5->{'history'}->{'date'}->{'pretty'};
 	echo "lokasi saat ini :";
 	echo "<br>";
@@ -36,8 +37,11 @@
 	echo "<br>";
 	echo "cuaca saat ini :<br>";
 	echo"&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<img src='http://icons.wxug.com/i/c/k/".$icon.".gif'> <br/>";
+	echo "$cuaca<br>";
+	echo "<br>";
 	echo "Kecepatan Angin : ${angin} meter/jam<br>";
-	echo "<br>";echo "Umur bulan : ${ageOfMoon}";
+	echo "<br>";
+	echo "Umur bulan : ${ageOfMoon}";
 	echo "<br>";
 	echo "Sunrise pada pukul ${sunrise}";
 	echo "<br>";
