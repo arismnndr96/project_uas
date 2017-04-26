@@ -2,15 +2,15 @@
 	
 	$json_string = file_get_contents("http://api.wunderground.com/api/59aff698dad25e5b/almanac/q/ID/Semarang.json");
 	$parsed_json = json_decode ($json_string);
-	$json_string1 = file_get_contents("http://api.wunderground.com/api/c70c919862002b41/conditions/q/IA/mugas.json");
+	$json_string1 = file_get_contents("http://api.wunderground.com/api/59aff698dad25e5b/conditions/q/IA/mugas.json");
 	$parsed_json1 = json_decode ($json_string1);
-	$json_string2 = file_get_contents("http://api.wunderground.com/api/c70c919862002b41/astronomy/q/IA/Mugas.json");
+	$json_string2 = file_get_contents("http://api.wunderground.com/api/59aff698dad25e5b/astronomy/q/IA/Mugas.json");
 	$parsed_json2 = json_decode ($json_string2);
-	$json_string3 = file_get_contents("http://api.wunderground.com/api/c70c919862002b41/forecast/q/IA/Mugas.json");
+	$json_string3 = file_get_contents("http://api.wunderground.com/api/59aff698dad25e5b/forecast/q/IA/Mugas.json");
 	$parsed_json3 = json_decode ($json_string3);
-	$json_string4 = file_get_contents("http://api.wunderground.com/api/c70c919862002b41/planner_07010731/q/IA/Mugas.json");
+	$json_string4 = file_get_contents("http://api.wunderground.com/api/59aff698dad25e5b/planner_07010731/q/IA/Mugas.json");
 	$parsed_json4 = json_decode ($json_string4);
-	$json_string5 = file_get_contents("http://api.wunderground.com/api/c70c919862002b41/yesterday/q/IA/Mugas.json");
+	$json_string5 = file_get_contents("http://api.wunderground.com/api/59aff698dad25e5b/yesterday/q/IA/Mugas.json");
 	$parsed_json5 = json_decode ($json_string5);
 	$icon = $parsed_json3->{'forecast'}->{'txt_forecast'}->forecastday[0]->{'icon'};
 	$negara = $parsed_json->response->results[0]->country_name;
@@ -26,6 +26,7 @@
 	$avg = $parsed_json4->{'trip'}->{'temp_high'}->{'avg'}->{'C'};
 	$cuaca = $parsed_json4->trip->cloud_cover->cond;
 	$kemarin = $parsed_json5->{'history'}->{'date'}->{'pretty'};
+	$visibility_km= $parsed_json1->{'current_observation'}->{'visibility_km'};
 	echo "lokasi saat ini :";
 	echo "<br>";
   	echo "kota   : $kota<br>";
@@ -40,6 +41,7 @@
 	echo "$cuaca<br>";
 	echo "<br>";
 	echo "Kecepatan Angin : ${angin} meter/jam<br>";
+	echo "Jarak pandang : ${visibility_km}km<br>";
 	echo "<br>";
 	echo "Umur bulan : ${ageOfMoon}";
 	echo "<br>";
